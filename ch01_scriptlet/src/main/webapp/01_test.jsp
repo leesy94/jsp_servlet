@@ -4,32 +4,42 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Test</title>
 </head>
 <body>
-<!-- 주석 -->
-<%
-	int age = 23;
-	String name = "홍길동";
-%> 
 
-나의 이름은 <%=name %>입니다.
-나의 나이는 <%=age %>살 입니다.
-안녕하세요
-내가 쓴 글씨 : <%=str %>
- 
-<%! //메소드 정의는 여기서
-	/* 주석 */
-	String str = "글씨";
-	int me() {
-		return 12;
-	}
-%>
-<%--
-	JSP 주석
-	한줄에 html과 프로그램이 섞여 있을 경우 사용
- --%>
- 
-<%=me() %>
+	<% 
+		// 메소드 정의 불가
+		String name = "홍길동";
+		int age = 25;
+		
+	%>
+	
+	나의 이름은 <%=name %> 입니다<br>
+	나이는 <%=age %>입니다<br>
+	내가 쓴 글씨 <%=str %>
+	
+	<%!
+		// 메소드 반드시 여기에서
+		String str = "글씨";
+		int me(int a, int b) {
+			return a+b;
+		}
+	%>
+	
+	메소드 :  <%=me(3,5)%>
+	
+	<!-- 주석입니다 -->
+	<%
+		/*
+			주석입니다	
+			여러줄 주석
+		*/
+		// 한줄 주석
+	%>
+	<%--
+		jsp 주석
+		한줄에 html과 프로그램이 섞여있을 경우 사용하면 편함
+	--%>
 </body>
 </html>

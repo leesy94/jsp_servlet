@@ -4,28 +4,49 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>for문</title>
 </head>
 <body>
-<%
-	int sum = 0;
-	for(int i = 1; i <=10; i++) {
-		sum += i;
-	}	
-%>
-<%-- 1~10까지의 합 <%=sum %> --%>
-<%
-	int sum2 = 0 ; 
-	for(int i = 1; i <=10; i++) {
-		if(i<10) {
-			out.println(i+"+");
-			out.print("<b>글씨</b>");
-		}else {
-			out.println(i+"=");
+	<!-- 1~10합계 -->
+	<%-- 
+		<%
+			int sum = 0;
+			for(int i=1; i<=10; i++) {
+				sum+=i;
+			}
+		%>
+		1~10까지 합 = <%=sum %> 
+	--%>
+	<%
+		int sum = 0;
+		for(int i=1; i<=10; i++) {
+			if(i<10) {
+	%>
+				<%=i %> +     <%-- <%=(i + "+") %>  --%>
+	<%
+			} else {
+	%>
+				<%=i %> =	 <%-- <%=(i + "=") %>  --%>
+	<%
+			}
+			sum+=i;
 		}
-		sum2 += i;
-	}
-%>
-1~10까지의 합 <%=sum2 %>
+	%>
+	<%=sum %>
+	
+	<br>
+	
+	<%
+		sum = 0;
+		for(int i=1; i<=10; i++) {
+			if(i<10) {
+				out.print(i + " + ");
+			} else {
+				out.print(i + " = ");
+			}
+			sum+=i;
+		}
+	%>
+	<%=sum %>
 </body>
 </html>
